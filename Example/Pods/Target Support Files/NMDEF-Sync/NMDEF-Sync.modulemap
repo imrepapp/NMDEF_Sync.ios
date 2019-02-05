@@ -1,0 +1,6 @@
+framework module NMDEF_Sync {
+  umbrella header "NMDEF-Sync-umbrella.h"
+
+  export *
+  module * { export * }
+}

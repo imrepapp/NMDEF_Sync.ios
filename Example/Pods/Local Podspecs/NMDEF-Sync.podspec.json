@@ -1,0 +1,22 @@
+{
+  "name": "NMDEF-Sync",
+  "version": "0.1.0",
+  "summary": "A short description of NMDEF-Sync.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ambri/NMDEF-Sync",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ambri": "attila.ambrus@xapt.com"
+  },
+  "source": {
+    "git": "https://github.com/ambri/NMDEF-Sync.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "NMDEF-Sync/Classes/**/*"
+}

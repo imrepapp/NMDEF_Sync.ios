@@ -1,0 +1,6 @@
+use_frameworks!
+target 'NMDEF-Sync_Tests' do
+  pod 'NMDEF-Sync', :path => '../'
+  
+  
+end

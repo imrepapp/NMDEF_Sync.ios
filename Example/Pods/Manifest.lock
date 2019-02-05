@@ -1,0 +1,16 @@
+PODS:
+  - NMDEF-Sync (0.1.0)
+
+DEPENDENCIES:
+  - NMDEF-Sync (from `../`)
+
+EXTERNAL SOURCES:
+  NMDEF-Sync:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  NMDEF-Sync: b045a6e7cab4b9ae4f99dfaa822a2d8bd5573895
+
+PODFILE CHECKSUM: c8a2e4a9b185a98af79679346520b9d6a3585edd
+
+COCOAPODS: 1.6.0.beta.2
