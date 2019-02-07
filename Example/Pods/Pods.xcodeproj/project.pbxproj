@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0ADBAC220C5E88004461B5 /* MS_TableOperations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0ADBA9220C5E88004461B5 /* MS_TableOperations.swift */; };
+		0D0ADBAD220C5E88004461B5 /* MS_TableConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0ADBAA220C5E88004461B5 /* MS_TableConfig.swift */; };
+		0D0ADBAE220C5E88004461B5 /* MS_TableOperationErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D0ADBAB220C5E88004461B5 /* MS_TableOperationErrors.swift */; };
 		0DDF1EB321FEFBC200D92F3D /* ClientFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF1E8321FEFBC200D92F3D /* ClientFilter.swift */; };
 		0DDF1EB421FEFBC200D92F3D /* PatchHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF1E8521FEFBC200D92F3D /* PatchHandler.swift */; };
 		0DDF1EB521FEFBC200D92F3D /* BaseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDF1E8621FEFBC200D92F3D /* BaseHandler.swift */; };
@@ -65,6 +68,9 @@
 
 /* Begin PBXFileReference section */
 		05A950365D49C8819AA904A8B9C64F82 /* NMDEF-Sync-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "NMDEF-Sync-prefix.pch"; sourceTree = "<group>"; };
+		0D0ADBA9220C5E88004461B5 /* MS_TableOperations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MS_TableOperations.swift; sourceTree = "<group>"; };
+		0D0ADBAA220C5E88004461B5 /* MS_TableConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MS_TableConfig.swift; sourceTree = "<group>"; };
+		0D0ADBAB220C5E88004461B5 /* MS_TableOperationErrors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MS_TableOperationErrors.swift; sourceTree = "<group>"; };
 		0D7539DF7E919B9EF1A6C927384F5EDB /* Pods-NMDEF-Sync_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-NMDEF-Sync_Tests-dummy.m"; sourceTree = "<group>"; };
 		0DDF1E8321FEFBC200D92F3D /* ClientFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClientFilter.swift; sourceTree = "<group>"; };
 		0DDF1E8521FEFBC200D92F3D /* PatchHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PatchHandler.swift; sourceTree = "<group>"; };
@@ -160,9 +166,20 @@
 			path = "Example/Pods/Target Support Files/NMDEF-Sync";
 			sourceTree = "<group>";
 		};
+		0D0ADBA8220C5E88004461B5 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				0D0ADBA9220C5E88004461B5 /* MS_TableOperations.swift */,
+				0D0ADBAA220C5E88004461B5 /* MS_TableConfig.swift */,
+				0D0ADBAB220C5E88004461B5 /* MS_TableOperationErrors.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		0DDF1E8121FEFBC200D92F3D /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0D0ADBA8220C5E88004461B5 /* Entities */,
 				0DDF1E8221FEFBC200D92F3D /* SyncHandlers */,
 				0DDF1E9D21FEFBC200D92F3D /* SyncQueue */,
 				0DDF1EA021FEFBC200D92F3D /* Azure */,
@@ -451,6 +468,14 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
+				TargetAttributes = {
+					1152E1ADFA8053816E5B0BFCC69036DD = {
+						DevelopmentTeam = Xapt;
+					};
+					A165F4DFE2EE5E605995BB3A1CFCF37E = {
+						DevelopmentTeam = Xapt;
+					};
+				};
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -506,12 +531,14 @@
 				0DDF1ECD21FEFBC200D92F3D /* Store.swift in Sources */,
 				0DDF1ED121FEFBC200D92F3D /* MirrorExtension.swift in Sources */,
 				0DDF1EB521FEFBC200D92F3D /* BaseHandler.swift in Sources */,
+				0D0ADBAE220C5E88004461B5 /* MS_TableOperationErrors.swift in Sources */,
 				0DDF1EC221FEFBC200D92F3D /* BaseRequestHandlerArgs.swift in Sources */,
 				0DDF1EBD21FEFBC200D92F3D /* GetResponseHandlerArgs.swift in Sources */,
 				0DDF1ECC21FEFBC200D92F3D /* Exceptions.swift in Sources */,
 				0DDF1ED321FEFBC200D92F3D /* RealmExtension.swift in Sources */,
 				0DDF1ED521FEFBC200D92F3D /* BaseEntity.swift in Sources */,
 				0DDF1ED621FEFBC200D92F3D /* BaseObject.swift in Sources */,
+				0D0ADBAC220C5E88004461B5 /* MS_TableOperations.swift in Sources */,
 				0DDF1EBC21FEFBC200D92F3D /* DeviceIdHandler.swift in Sources */,
 				0DDF1EBA21FEFBC200D92F3D /* BaseOperationHandler.swift in Sources */,
 				0DDF1EC521FEFBC200D92F3D /* DeleteResponseHandlerArgs.swift in Sources */,
@@ -520,6 +547,7 @@
 				0DDF1ED221FEFBC200D92F3D /* URLResponseExtension.swift in Sources */,
 				0DDF1EBF21FEFBC200D92F3D /* BaseResponseHandlerArgs.swift in Sources */,
 				0DDF1ED421FEFBC200D92F3D /* BaseDataProvider.swift in Sources */,
+				0D0ADBAD220C5E88004461B5 /* MS_TableConfig.swift in Sources */,
 				2B548F5413615658AE05B37817FC7A39 /* NMDEF-Sync-dummy.m in Sources */,
 				0DDF1ED721FEFBC200D92F3D /* BaseDataAccessObjectProtocol.swift in Sources */,
 				0DDF1EC621FEFBC200D92F3D /* PatchResponseHandlerArgs.swift in Sources */,
