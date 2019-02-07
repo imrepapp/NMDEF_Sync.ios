@@ -1,4 +1,4 @@
-class PatchRequestHandlerArgs: BaseOperationRequestHandlerArgs {
+public class PatchRequestHandlerArgs: BaseOperationRequestHandlerArgs {
     required init(_ request: NSMutableURLRequest) {
         super.init(request)
     }

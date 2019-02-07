@@ -1,4 +1,4 @@
-class BaseRequestHandlerArgs: BaseHandlerArgs {
+public class BaseRequestHandlerArgs: BaseHandlerArgs {
     public var request: NSMutableURLRequest
 
     required init(_ request: NSMutableURLRequest) {

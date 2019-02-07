@@ -1,11 +1,11 @@
-enum HttpMethod: String {
+public enum HttpMethod: String {
     case get = "GET"
     case post = "POST"
     case patch = "PATCH"
     case delete = "DELETE"
 }
 
-class BaseHandler {
+public class BaseHandler {
     public var priority: Int { return 1000 }
     public var types: [String] { return [] }
     public var methods: [HttpMethod]

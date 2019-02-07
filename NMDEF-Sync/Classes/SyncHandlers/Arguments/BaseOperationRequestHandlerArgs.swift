@@ -1,6 +1,6 @@
 import EVReflection
 
-class BaseOperationRequestHandlerArgs: BaseRequestHandlerArgs {
+public class BaseOperationRequestHandlerArgs: BaseRequestHandlerArgs {
     var entity: BaseEntity?
 
     required init(_ request: NSMutableURLRequest) {

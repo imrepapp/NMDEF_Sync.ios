@@ -1,6 +1,6 @@
 import Foundation
 
-class BaseResponseHandlerArgs: BaseHandlerArgs {
+public class BaseResponseHandlerArgs: BaseHandlerArgs {
     public var request: NSMutableURLRequest
     public var response: URLResponse
     public var data: Data

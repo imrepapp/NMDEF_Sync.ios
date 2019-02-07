@@ -34,7 +34,14 @@ public class BaseDataProvider: NSObject {
                 self.client!.currentUser?.mobileServiceAuthenticationToken = context.token
             }
 
-            self.collect()
+            //self.collect()
+            self.syncDAOs.sort(by: { $0.priority < $1.priority })
+
+            // add handlers
+            self.addHandler([
+                DeviceIdHandler(),
+                InsertHandler()
+            ])
 
             if self.syncDAOs.count == 0 {
                 fatalError("There aren't any DAO classes.")
@@ -137,8 +144,6 @@ public class BaseDataProvider: NSObject {
                 break
             }
         }
-
-        syncDAOs.sort(by: { $0.priority < $1.priority })
     }
 
     private func subclasses<T>(of theClass: T) -> [T] {
@@ -185,6 +190,26 @@ public class BaseDataProvider: NSObject {
         }
 
         return Disposables.create()
+    }
+
+    public func addDAO(_ daos: [BaseDataAccessObjectProtocol]) {
+        for var d in daos {
+           addDAO(dao: d)
+        }
+    }
+
+    public func addDAO(dao: BaseDataAccessObjectProtocol) {
+        syncDAOs.append(dao)
+    }
+
+    public func addHandler(_ handlers: [BaseHandler]) {
+        for var h in handlers {
+            addHandler(handler: h)
+        }
+    }
+
+    public func addHandler(handler: BaseHandler) {
+        ClientFilter.handlers.append(handler)
     }
 }
 

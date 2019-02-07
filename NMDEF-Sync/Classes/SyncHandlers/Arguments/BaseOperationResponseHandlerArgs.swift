@@ -1,6 +1,6 @@
 import EVReflection
 
-class BaseOperationResponseHandlerArgs: BaseResponseHandlerArgs {
+public class BaseOperationResponseHandlerArgs: BaseResponseHandlerArgs {
     var entity: BaseEntity?
     var newEntity: BaseEntity?
 

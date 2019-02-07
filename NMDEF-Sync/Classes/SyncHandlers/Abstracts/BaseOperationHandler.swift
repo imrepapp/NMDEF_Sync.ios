@@ -1,4 +1,4 @@
-class BaseOperationHandler: BaseHandler {
+public class BaseOperationHandler: BaseHandler {
     required init() {
         super.init()
     }

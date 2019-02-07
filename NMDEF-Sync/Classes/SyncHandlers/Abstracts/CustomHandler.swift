@@ -1,4 +1,4 @@
-class CustomHandler: BaseHandler {
+public class CustomHandler: BaseHandler {
     required init() {
         super.init()
     }
