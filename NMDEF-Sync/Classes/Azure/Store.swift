@@ -1,7 +1,7 @@
 import UIKit
 import RealmSwift
 import EVReflection
-import MicrosoftAzureMobile
+import MicrosoftAzureMobile_Xapt
 
 public class Store: NSObject, MSSyncContextDataSource {
     func systemProperties(forTable table: String) -> UInt {

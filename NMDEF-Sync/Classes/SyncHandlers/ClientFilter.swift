@@ -1,4 +1,4 @@
-import MicrosoftAzureMobile
+import MicrosoftAzureMobile_Xapt
 
 class ClientFilter: NSObject, MSFilter {
     static var handlers: [BaseHandler] = []

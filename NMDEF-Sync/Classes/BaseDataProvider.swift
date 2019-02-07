@@ -1,4 +1,4 @@
-import MicrosoftAzureMobile
+import MicrosoftAzureMobile_Xapt
 import RxSwift
 
 public class BaseDataProvider: NSObject {

@@ -1,6 +1,6 @@
 import Foundation
 import RealmSwift
-import MicrosoftAzureMobile
+import MicrosoftAzureMobile_Xapt
 import EVReflection
 
 public extension Results {

@@ -1,4 +1,4 @@
-import MicrosoftAzureMobile
+import MicrosoftAzureMobile_Xapt
 
 public protocol BaseDataAccessObjectProtocol {
     var datasource: MSSyncTable { get }

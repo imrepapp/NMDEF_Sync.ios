@@ -1,7 +1,7 @@
 import RealmSwift
 import RxSwift
 import EVReflection
-import MicrosoftAzureMobile
+import MicrosoftAzureMobile_Xapt
 
 public extension BaseDataAccessObjectProtocol {
     // General
