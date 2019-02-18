@@ -1,5 +1,5 @@
-public class DeleteHandler: BaseOperationHandler {
-    required init() {
+open class DeleteHandler: BaseOperationHandler {
+    public required init() {
         super.init(.delete)
     }
 }

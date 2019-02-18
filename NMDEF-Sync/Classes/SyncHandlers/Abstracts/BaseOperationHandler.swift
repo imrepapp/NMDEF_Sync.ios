@@ -1,13 +1,13 @@
-public class BaseOperationHandler: BaseHandler {
-    required init() {
+open class BaseOperationHandler: BaseHandler {
+    public required init() {
         super.init()
     }
 
-    override init(_ method: HttpMethod) {
+    public override init(_ method: HttpMethod) {
         super.init(method)
     }
 
-    override init(_ methods: [HttpMethod]) {
+    public override init(_ methods: [HttpMethod]) {
         super.init(methods)
     }
 }

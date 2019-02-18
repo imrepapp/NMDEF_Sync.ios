@@ -1,5 +1,5 @@
-public class PatchHandler: BaseOperationHandler {
-    required init() {
+open class PatchHandler: BaseOperationHandler {
+    public required init() {
         super.init(.patch)
     }
 }

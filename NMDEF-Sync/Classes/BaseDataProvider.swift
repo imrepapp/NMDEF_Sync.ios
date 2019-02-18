@@ -1,4 +1,5 @@
 import MicrosoftAzureMobile_Xapt
+import RxBus
 import RxSwift
 
 public class BaseDataProvider: NSObject {
@@ -104,10 +105,10 @@ public class BaseDataProvider: NSObject {
         }
     }
 
-    public static func DAO<T>(_ dao: T) -> BaseDataAccessObjectProtocol {
+    public static func DAO<T: DataAccessObjectProtocol>(_ dao: T.Type) -> T {
         let className = String(describing: T.self).replacingOccurrences(of: ".Type", with: "")
-        if let d = instance.syncDAOs.filter({ String(describing: type(of: $0)) == String(describing: dao) }).first {
-            return d
+        if let d = instance.syncDAOs.filter({ String(describing: type(of: $0)) == String(describing: T.self) }).first {
+            return d as! T
         }
 
         fatalError("There is no such DAO: \(className)")
@@ -178,7 +179,7 @@ public class BaseDataProvider: NSObject {
         _syncQueue.add(group: groupName, priority: priority, isVisible: isVisible)
     }
 
-    private func syncQueueItem(syncItem: SynchronizationQueueItem) -> Disposable {
+    private func syncQueueItem(syncItem: SynchronizationQueueItem) -> Observable<Void> {
         if syncItem.group == nil || syncGroups[syncItem.group ?? ""] != nil {
             var daos: [Observable<Void>] = []
             var sd = syncItem.group != nil ? syncDAOs.filter({ syncGroups[syncItem.group!]!.contains(String(describing: type(of: $0))) }) : syncDAOs
@@ -186,15 +187,15 @@ public class BaseDataProvider: NSObject {
                 daos.append(dao.syncTable())
             }
 
-            return Observable.concat(daos).subscribe()
+            return Observable.concat(daos)
         }
 
-        return Disposables.create()
+        return Observable.empty()
     }
 
     public func addDAO(_ daos: [BaseDataAccessObjectProtocol]) {
         for var d in daos {
-           addDAO(dao: d)
+            addDAO(dao: d)
         }
     }
 

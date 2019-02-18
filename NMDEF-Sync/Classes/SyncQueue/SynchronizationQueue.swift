@@ -20,8 +20,10 @@ public class SynchronizationQueue {
     private var _queue: [SynchronizationQueueItem] = []
     private var _enabled: Bool = true
     private var _currentProcess: Disposable?
+    private var _currentItem: SynchronizationQueueItem?
+    private var _disposebag: DisposeBag = DisposeBag()
 
-    internal var syncAction: ((_ syncItem: SynchronizationQueueItem) -> Disposable)?
+    internal var syncAction: ((_ syncItem: SynchronizationQueueItem) -> Observable<Void>)?
 
     private init() {
         syncAction = nil
@@ -47,7 +49,13 @@ public class SynchronizationQueue {
             })
 
             if let item = (pendingItems.filter({ $0.status == .requested }).first ?? pendingItems.filter({ $0.status == .canceled }).first) {
-                _currentProcess = syncAction!(item)
+                _currentItem = item
+                _currentItem?.status = .inProgress
+                _currentProcess = syncAction!(item).subscribe({
+                    print($0)
+                    self._currentItem?.status = .success
+                })
+                _currentProcess?.disposed(by: _disposebag)
             }
         }
     }
@@ -57,6 +65,7 @@ public class SynchronizationQueue {
     }
 
     public static func cancelAll(priority: SynchronizationPriority) {
+        instance._currentItem = nil
         instance._currentProcess?.dispose()
         for var sqi in instance._queue.filter({ ($0.status == .inProgress || $0.status == .start) && $0.priority.rawValue <= priority.rawValue }) {
             sqi.status = .canceled

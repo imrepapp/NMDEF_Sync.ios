@@ -1,4 +1,6 @@
-struct SynchronizationQueueItem {
+import RxBus
+
+public struct SynchronizationQueueItem {
     private var _status: SynchronizationStatus
 
     public private(set) var id: String
@@ -9,7 +11,14 @@ struct SynchronizationQueueItem {
     public var status: SynchronizationStatus {
         get { return _status }
         set {
+            if (isCanceled && newValue != .canceled) {
+                wasCanceled = true
+            }
+
             _status = newValue
+            modifiedAt = Date()
+
+            RxBus.shared.post(event: SyncEvent.Synced(item: self))
         }
     }
     public var isVisible: Bool

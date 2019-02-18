@@ -1,9 +1,9 @@
-public class CustomHandler: BaseHandler {
-    required init() {
+open class CustomHandler: BaseHandler {
+    public required init() {
         super.init()
     }
 
-    override init(_ methods: [HttpMethod]) {
+    public override init(_ methods: [HttpMethod]) {
         super.init(methods)
     }
 }

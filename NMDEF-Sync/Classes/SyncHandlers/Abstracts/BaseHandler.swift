@@ -5,28 +5,28 @@ public enum HttpMethod: String {
     case delete = "DELETE"
 }
 
-public class BaseHandler {
-    public var priority: Int { return 1000 }
+open class BaseHandler {
+    open var priority: Int { return 1000 }
     public var types: [String] { return [] }
     public var methods: [HttpMethod]
 
-    required init() {
+    public required init() {
         methods = []
     }
 
-    init(_ method: HttpMethod) {
+    public init(_ method: HttpMethod) {
         self.methods = [method]
     }
 
-    init(_ methods: [HttpMethod]) {
+    public init(_ methods: [HttpMethod]) {
         self.methods = methods
     }
 
-    public func onBeforeRequest(requestArgs: BaseRequestHandlerArgs) {
+    open func onBeforeRequest(requestArgs: BaseRequestHandlerArgs) {
 
     }
 
-    public func onAfterRequest(responseArgs: BaseResponseHandlerArgs) {
+    open func onAfterRequest(responseArgs: BaseResponseHandlerArgs) {
         if !responseArgs.response.isSuccessStatusCode {
             print(String(data: responseArgs.data, encoding: .utf8))
         }

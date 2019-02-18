@@ -182,7 +182,7 @@ public extension BaseDataAccessObjectProtocol {
     // END
 }
 
-extension DataAccessObjectProtocol {
+public extension DataAccessObjectProtocol {
     public var priority: Int {
         get {
             return 1000
@@ -191,6 +191,7 @@ extension DataAccessObjectProtocol {
 
     public var datasource: MSSyncTable {
         get {
+            var name = String(format: "%@%@", arguments: ["MOB_", (String(describing: Model.self)).replacingOccurrences(of: ".Type", with: "")])
             return BaseDataProvider.instance.client!.syncTable(withName: String(format: "%@%@", arguments: ["MOB_", (String(describing: Model.self)).replacingOccurrences(of: ".Type", with: "")]))
         }
     }
@@ -200,4 +201,69 @@ extension DataAccessObjectProtocol {
             return false
         }
     }
+
+    public func filterAsync(query: MSQuery) -> Observable<[Model]> {
+        return Observable.create { observer in
+            var items: [Model] = []
+
+            do {
+                for item in try (BaseDataProvider.instance.store?.read(with: query).items)! {
+                    let appName = Bundle.main.infoDictionary!["CFBundleName"] as! String
+                    let className = String(format: "%@.%@", appName, self.datasource.name.replacingOccurrences(of: "MOB_", with: ""))
+                    let entityClass = NSClassFromString(className) as! Model.Type
+                    items.append(entityClass.init(dictionary: item as NSDictionary))
+                }
+
+                observer.onNext(items)
+                observer.onCompleted()
+            } catch {
+                observer.onError(error)
+            }
+
+            return Disposables.create()
+        }
+    }
+
+    public func filterAsync(predicate: NSPredicate) -> Observable<[Model]> {
+        return self.filterAsync(query: self.datasource.query(with: predicate))
+    }
+
+    public func toListAsync() -> Observable<[Model]> {
+        return self.filterAsync(query: self.datasource.query())
+    }
+
+    // returning model
+    public func lookUp(id: String) -> Model? {
+        do {
+            return try (BaseDataProvider.instance.store as! Store).getRecordForTable(table: self.datasource.name, itemId: id) as? Model
+        } catch {
+            return nil
+        }
+    }
+
+    public func filter(query: MSQuery) -> [Model] {
+        var items: [Model] = []
+
+        do {
+            for item in try (BaseDataProvider.instance.store?.read(with: query).items)! {
+                let appName = Bundle.main.infoDictionary!["CFBundleName"] as! String
+                let className = String(format: "%@.%@", appName, self.datasource.name.replacingOccurrences(of: "MOB_", with: ""))
+                let entityClass = NSClassFromString(className) as! Model.Type
+                items.append(entityClass.init(dictionary: item as NSDictionary))
+            }
+
+            return items
+        } catch {
+            return items
+        }
+    }
+
+    public func filter(predicate: NSPredicate) -> [Model] {
+        return self.filter(query: self.datasource.query(with: predicate))
+    }
+
+    public var items: [Model] {
+        return self.filter(query: self.datasource.query())
+    }
+    // END
 }

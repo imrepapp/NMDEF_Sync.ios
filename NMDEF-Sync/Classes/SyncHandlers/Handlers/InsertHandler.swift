@@ -1,9 +1,9 @@
-class InsertHandler: PostHandler {
-    override func onBeforeRequest(requestArgs: BaseRequestHandlerArgs) {
+public class InsertHandler: PostHandler {
+    override open func onBeforeRequest(requestArgs: BaseRequestHandlerArgs) {
         super.onBeforeRequest(requestArgs: requestArgs)
     }
 
-    override func onAfterRequest(responseArgs: BaseResponseHandlerArgs) {
+    override open func onAfterRequest(responseArgs: BaseResponseHandlerArgs) {
         super.onAfterRequest(responseArgs: responseArgs)
 
         do {
