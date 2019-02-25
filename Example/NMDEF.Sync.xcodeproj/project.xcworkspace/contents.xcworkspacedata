@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:NMDEF-Sync.xcodeproj">
+      location = "self:NMDEF.Sync.xcodeproj">
    </FileRef>
 </Workspace>

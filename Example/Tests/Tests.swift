@@ -1,5 +1,5 @@
 import XCTest
-import NMDEF-Sync
+import NMDEF.Sync
 
 class Tests: XCTestCase {
     

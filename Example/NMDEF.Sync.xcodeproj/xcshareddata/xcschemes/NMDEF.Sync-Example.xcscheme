@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-               BuildableName = "NMDEF-Sync_Example.app"
-               BlueprintName = "NMDEF-Sync_Example"
-               ReferencedContainer = "container:NMDEF-Sync.xcodeproj">
+               BuildableName = "NMDEF.Sync_Example.app"
+               BlueprintName = "NMDEF.Sync_Example"
+               ReferencedContainer = "container:NMDEF.Sync.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "NMDEF-Sync_Tests.xctest"
-               BlueprintName = "NMDEF-Sync_Tests"
-               ReferencedContainer = "container:NMDEF-Sync.xcodeproj">
+               BuildableName = "NMDEF.Sync_Tests.xctest"
+               BlueprintName = "NMDEF.Sync_Tests"
+               ReferencedContainer = "container:NMDEF.Sync.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -48,9 +48,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "607FACE41AFB9204008FA782"
-               BuildableName = "NMDEF-Sync_Tests.xctest"
-               BlueprintName = "NMDEF-Sync_Tests"
-               ReferencedContainer = "container:NMDEF-Sync.xcodeproj">
+               BuildableName = "NMDEF.Sync_Tests.xctest"
+               BlueprintName = "NMDEF.Sync_Tests"
+               ReferencedContainer = "container:NMDEF.Sync.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -58,9 +58,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "NMDEF-Sync_Example.app"
-            BlueprintName = "NMDEF-Sync_Example"
-            ReferencedContainer = "container:NMDEF-Sync.xcodeproj">
+            BuildableName = "NMDEF.Sync_Example.app"
+            BlueprintName = "NMDEF.Sync_Example"
+            ReferencedContainer = "container:NMDEF.Sync.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -82,9 +82,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "NMDEF-Sync_Example.app"
-            BlueprintName = "NMDEF-Sync_Example"
-            ReferencedContainer = "container:NMDEF-Sync.xcodeproj">
+            BuildableName = "NMDEF.Sync_Example.app"
+            BlueprintName = "NMDEF.Sync_Example"
+            ReferencedContainer = "container:NMDEF.Sync.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -101,9 +101,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "607FACCF1AFB9204008FA782"
-            BuildableName = "NMDEF-Sync_Example.app"
-            BlueprintName = "NMDEF-Sync_Example"
-            ReferencedContainer = "container:NMDEF-Sync.xcodeproj">
+            BuildableName = "NMDEF.Sync_Example.app"
+            BlueprintName = "NMDEF.Sync_Example"
+            ReferencedContainer = "container:NMDEF.Sync.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

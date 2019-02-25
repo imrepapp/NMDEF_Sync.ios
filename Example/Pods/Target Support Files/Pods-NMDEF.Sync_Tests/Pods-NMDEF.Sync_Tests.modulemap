@@ -1,5 +1,5 @@
 framework module Pods_NMDEF_Sync_Tests {
-  umbrella header "Pods-NMDEF-Sync_Tests-umbrella.h"
+  umbrella header "Pods-NMDEF.Sync_Tests-umbrella.h"
 
   export *
   module * { export * }

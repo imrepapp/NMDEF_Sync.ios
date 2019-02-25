@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
-		D04F937848134FF8C6F6CF44 /* Pods_NMDEF_Sync_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 447507FF26C13054F79F91B5 /* Pods_NMDEF_Sync_Tests.framework */; };
+		E9070CBA52436065B5F86837 /* Pods_NMDEF_Sync_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D735F529C5641919614B6535 /* Pods_NMDEF_Sync_Tests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2FE4582DBAE7F973D8D39D8C /* Pods-NMDEF-Sync_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF-Sync_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NMDEF-Sync_Tests/Pods-NMDEF-Sync_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		447507FF26C13054F79F91B5 /* Pods_NMDEF_Sync_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NMDEF_Sync_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		607FACE51AFB9204008FA782 /* NMDEF-Sync_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NMDEF-Sync_Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2C550CE18FF075FB40E86152 /* NMDEF.Sync.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = NMDEF.Sync.podspec; path = ../NMDEF.Sync.podspec; sourceTree = "<group>"; };
+		607FACE51AFB9204008FA782 /* NMDEF.Sync_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NMDEF.Sync_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
-		B13EED58B35E8AE91F369630 /* Pods-NMDEF-Sync_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF-Sync_Tests.release.xcconfig"; path = "Target Support Files/Pods-NMDEF-Sync_Tests/Pods-NMDEF-Sync_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		BE20D1631BE0FC7AF985E3AC /* NMDEF-Sync.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "NMDEF-Sync.podspec"; path = "../NMDEF-Sync.podspec"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C85A5BE2334F55D69AC51B02 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		DA5F70DA13B43A0B4707EDB6 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8D6DCC33E4277EC172A6B8DE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		AFAAED7C2CF0C7DB918F88DE /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		C2A9E04FB95518DCB7599C09 /* Pods-NMDEF.Sync_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF.Sync_Tests.debug.xcconfig"; path = "Target Support Files/Pods-NMDEF.Sync_Tests/Pods-NMDEF.Sync_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		D735F529C5641919614B6535 /* Pods_NMDEF_Sync_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NMDEF_Sync_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E75D21ED31FCF3A729ACB6BE /* Pods-NMDEF.Sync_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NMDEF.Sync_Tests.release.xcconfig"; path = "Target Support Files/Pods-NMDEF.Sync_Tests/Pods-NMDEF.Sync_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -28,7 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D04F937848134FF8C6F6CF44 /* Pods_NMDEF_Sync_Tests.framework in Frameworks */,
+				E9070CBA52436065B5F86837 /* Pods_NMDEF_Sync_Tests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,15 +41,15 @@
 				607FACF51AFB993E008FA782 /* Podspec Metadata */,
 				607FACE81AFB9204008FA782 /* Tests */,
 				607FACD11AFB9204008FA782 /* Products */,
-				8C822E056BF1B7DB598340FE /* Pods */,
-				7FE3B84100A04234CA5B6B8C /* Frameworks */,
+				AFC8AA58728CF4F2FCDC57E3 /* Pods */,
+				9F19314F36D624A22AF7E31A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		607FACD11AFB9204008FA782 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				607FACE51AFB9204008FA782 /* NMDEF-Sync_Tests.xctest */,
+				607FACE51AFB9204008FA782 /* NMDEF.Sync_Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -74,50 +74,51 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				BE20D1631BE0FC7AF985E3AC /* NMDEF-Sync.podspec */,
-				DA5F70DA13B43A0B4707EDB6 /* README.md */,
-				C85A5BE2334F55D69AC51B02 /* LICENSE */,
+				2C550CE18FF075FB40E86152 /* NMDEF.Sync.podspec */,
+				8D6DCC33E4277EC172A6B8DE /* README.md */,
+				AFAAED7C2CF0C7DB918F88DE /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		7FE3B84100A04234CA5B6B8C /* Frameworks */ = {
+		9F19314F36D624A22AF7E31A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				447507FF26C13054F79F91B5 /* Pods_NMDEF_Sync_Tests.framework */,
+				D735F529C5641919614B6535 /* Pods_NMDEF_Sync_Tests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8C822E056BF1B7DB598340FE /* Pods */ = {
+		AFC8AA58728CF4F2FCDC57E3 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				2FE4582DBAE7F973D8D39D8C /* Pods-NMDEF-Sync_Tests.debug.xcconfig */,
-				B13EED58B35E8AE91F369630 /* Pods-NMDEF-Sync_Tests.release.xcconfig */,
+				C2A9E04FB95518DCB7599C09 /* Pods-NMDEF.Sync_Tests.debug.xcconfig */,
+				E75D21ED31FCF3A729ACB6BE /* Pods-NMDEF.Sync_Tests.release.xcconfig */,
 			);
+			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		607FACE41AFB9204008FA782 /* NMDEF-Sync_Tests */ = {
+		607FACE41AFB9204008FA782 /* NMDEF.Sync_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "NMDEF-Sync_Tests" */;
+			buildConfigurationList = 607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "NMDEF.Sync_Tests" */;
 			buildPhases = (
-				DF129FDF42A51D3F00D84FA3 /* [CP] Check Pods Manifest.lock */,
+				AAF17EB3345D9EA0556289E9 /* [CP] Check Pods Manifest.lock */,
 				607FACE11AFB9204008FA782 /* Sources */,
 				607FACE21AFB9204008FA782 /* Frameworks */,
 				607FACE31AFB9204008FA782 /* Resources */,
-				B46825E09210CD741284EFA2 /* [CP] Embed Pods Frameworks */,
+				805B58D2B2AEAAF4BCD7DC03 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "NMDEF-Sync_Tests";
+			name = NMDEF.Sync_Tests;
 			productName = Tests;
-			productReference = 607FACE51AFB9204008FA782 /* NMDEF-Sync_Tests.xctest */;
+			productReference = 607FACE51AFB9204008FA782 /* NMDEF.Sync_Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -130,6 +131,10 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = CocoaPods;
 				TargetAttributes = {
+					607FACCF1AFB9204008FA782 = {
+						CreatedOnToolsVersion = 6.3.1;
+						LastSwiftMigration = 0900;
+					};
 					607FACE41AFB9204008FA782 = {
 						CreatedOnToolsVersion = 6.3.1;
 						LastSwiftMigration = 0900;
@@ -137,7 +142,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "NMDEF-Sync" */;
+			buildConfigurationList = 607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "NMDEF.Sync" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -150,7 +155,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				607FACE41AFB9204008FA782 /* NMDEF-Sync_Tests */,
+				607FACE41AFB9204008FA782 /* NMDEF.Sync_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -166,7 +171,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B46825E09210CD741284EFA2 /* [CP] Embed Pods Frameworks */ = {
+		805B58D2B2AEAAF4BCD7DC03 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -174,8 +179,8 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-NMDEF-Sync_Tests/Pods-NMDEF-Sync_Tests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/NMDEF-Sync/NMDEF_Sync.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-NMDEF.Sync_Tests/Pods-NMDEF.Sync_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/NMDEF.Sync/NMDEF_Sync.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -185,10 +190,10 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NMDEF-Sync_Tests/Pods-NMDEF-Sync_Tests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NMDEF.Sync_Tests/Pods-NMDEF.Sync_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DF129FDF42A51D3F00D84FA3 /* [CP] Check Pods Manifest.lock */ = {
+		AAF17EB3345D9EA0556289E9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -203,7 +208,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-NMDEF-Sync_Tests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-NMDEF.Sync_Tests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -325,7 +330,7 @@
 		};
 		607FACF31AFB9204008FA782 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2FE4582DBAE7F973D8D39D8C /* Pods-NMDEF-Sync_Tests.debug.xcconfig */;
+			baseConfigurationReference = C2A9E04FB95518DCB7599C09 /* Pods-NMDEF.Sync_Tests.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -341,13 +346,13 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NMDEF-Sync_Example.app/NMDEF-Sync_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NMDEF.Sync_Example.app/NMDEF.Sync_Example";
 			};
 			name = Debug;
 		};
 		607FACF41AFB9204008FA782 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B13EED58B35E8AE91F369630 /* Pods-NMDEF-Sync_Tests.release.xcconfig */;
+			baseConfigurationReference = E75D21ED31FCF3A729ACB6BE /* Pods-NMDEF.Sync_Tests.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -359,14 +364,14 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NMDEF-Sync_Example.app/NMDEF-Sync_Example";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NMDEF.Sync_Example.app/NMDEF.Sync_Example";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "NMDEF-Sync" */ = {
+		607FACCB1AFB9204008FA782 /* Build configuration list for PBXProject "NMDEF.Sync" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACED1AFB9204008FA782 /* Debug */,
@@ -375,7 +380,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "NMDEF-Sync_Tests" */ = {
+		607FACF21AFB9204008FA782 /* Build configuration list for PBXNativeTarget "NMDEF.Sync_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				607FACF31AFB9204008FA782 /* Debug */,
