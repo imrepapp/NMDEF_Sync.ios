@@ -235,7 +235,11 @@ public extension DataAccessObjectProtocol {
     // returning model
     public func lookUp(id: String) -> Model? {
         do {
-            return try (BaseDataProvider.instance.store as! Store).getRecordForTable(table: self.datasource.name, itemId: id) as? Model
+            if let entity = try (BaseDataProvider.instance.store as! Store).getRecordForTable(table: self.datasource.name, itemId: id) {
+                return Model.init(dictionary: (entity as! BaseEntity).toDict() as! NSDictionary)
+            }
+
+            return nil
         } catch {
             return nil
         }

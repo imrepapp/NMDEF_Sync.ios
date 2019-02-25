@@ -7,8 +7,8 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'NMDEF-Sync'
-  s.version          = '0.1.0'
+  s.name             = 'NMDEF.Sync'
+  s.version          = '1.0'
   s.summary          = 'Data synchronization framework for NMDEF applications'
 
 # This description is used to generate tags and improve search results.
@@ -39,6 +39,7 @@ This framework handles synchronization and data manipulation process between NMD
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
   s.dependency 'MicrosoftAzureMobile-Xapt'
+  s.dependency 'NMDEF.Base'
   s.dependency 'RealmSwift'
   s.dependency 'EVReflection/Realm'
   s.dependency 'ReachabilitySwift'

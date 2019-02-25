@@ -176,6 +176,7 @@ public class Store: NSObject, MSSyncContextDataSource {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "id == %@", argumentArray: [itemId])
         let tableObj = getTableObj(tableName: table)
+        var v = realm.objects(tableObj).filter(predicate).first
         return realm.objects(tableObj).filter(predicate).first
     }
 }
