@@ -25,7 +25,7 @@ This framework handles synchronization and data manipulation process between NMD
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Xapt Kft' => 'mobileteam@xapt.com' }
-  s.source           = { :git => 'xaptdev@vs-ssh.visualstudio.com:v3/xaptdev/CE_Mobile/nmdef.sync.ios', :tag => s.version.to_s }
+  s.source           = { :git => 'https://xaptdev.visualstudio.com/CE_Mobile/_git/nmdef.sync.ios', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
