@@ -30,10 +30,10 @@ This framework handles synchronization and data manipulation process between NMD
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'NMDEF-Sync/Classes/**/*'
+  s.source_files = 'NMDEF.Sync/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'NMDEF-Sync' => ['NMDEF-Sync/Assets/*.png']
+  #   'NMDEF-Sync' => ['NMDEF.Sync/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
