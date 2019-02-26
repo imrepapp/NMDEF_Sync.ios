@@ -28,7 +28,7 @@ This framework handles synchronization and data manipulation process between NMD
   s.source           = { :git => 'https://xaptdev.visualstudio.com/CE_Mobile/_git/nmdef.sync.ios', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '10.0'
 
   s.source_files = 'NMDEF.Sync/Classes/**/*'
   
