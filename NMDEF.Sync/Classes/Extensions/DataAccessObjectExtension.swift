@@ -75,8 +75,6 @@ public extension BaseDataAccessObjectProtocol {
     public func insertAndPushIfOnline<T: BaseEntity>(model: T) -> Observable<[AnyHashable: Any]> {
         return Observable.create { observer in
             model.id = ""
-//            model.updatedAt = Date()
-//            model.createdAt = Date()
 
             self.datasource.insert(model.toDict(), completion: { (item, error) in
                 if let e = error {
@@ -232,19 +230,6 @@ public extension DataAccessObjectProtocol {
         return self.filterAsync(query: self.datasource.query())
     }
 
-    // returning model
-    public func lookUp(id: String) -> Model? {
-        do {
-            if let entity = try (BaseDataProvider.instance.store as! Store).getRecordForTable(table: self.datasource.name, itemId: id) {
-                return Model.init(dictionary: (entity as! BaseEntity).toDict() as! NSDictionary)
-            }
-
-            return nil
-        } catch {
-            return nil
-        }
-    }
-
     public func filter(query: MSQuery) -> [Model] {
         var items: [Model] = []
 
@@ -266,8 +251,39 @@ public extension DataAccessObjectProtocol {
         return self.filter(query: self.datasource.query(with: predicate))
     }
 
+    public func lookUp(id: String) -> Model? {
+        do {
+            if let entity = try (BaseDataProvider.instance.store as! Store).getRecordForTable(table: self.datasource.name, itemId: id) {
+                return Model.init(dictionary: (entity as! BaseEntity).toDict() as! NSDictionary)
+            }
+
+            return nil
+        } catch {
+            return nil
+        }
+    }
+
+    public func lookUp(predicate: NSPredicate) -> Model? {
+        return self.filter(predicate: predicate).first
+    }
+
+    public func lookUpAsync(id: String) -> Observable<Model?> {
+        return Observable.create { observer in
+            observer.onNext(self.lookUp(id: id))
+            observer.onCompleted()
+            return Disposables.create()
+        }
+    }
+
+    public func lookUpAsync(predicate: NSPredicate) -> Observable<Model?> {
+        return Observable.create { observer in
+            observer.onNext(self.lookUp(predicate: predicate))
+            observer.onCompleted()
+            return Disposables.create()
+        }
+    }
+
     public var items: [Model] {
         return self.filter(query: self.datasource.query())
     }
-    // END
 }
