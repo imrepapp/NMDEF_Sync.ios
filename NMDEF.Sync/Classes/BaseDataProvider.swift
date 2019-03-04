@@ -4,11 +4,11 @@ import RxSwift
 
 public class BaseDataProvider: NSObject {
     public static let instance = BaseDataProvider()
+    public var client: MSClient?
+    public var store: MSSyncContextDataSource?
 
     private var _syncQueue: SynchronizationQueue = SynchronizationQueue.instance
 
-    var client: MSClient?
-    var store: MSSyncContextDataSource?
     var rowCount: Int?
     let pullSettings: MSPullSettings = MSPullSettings.init(pageSize: 1000)
 

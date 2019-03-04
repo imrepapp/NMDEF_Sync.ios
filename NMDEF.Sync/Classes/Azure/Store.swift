@@ -112,10 +112,10 @@ public class Store: NSObject, MSSyncContextDataSource {
 
                     let realm = try! Realm()
 
-                    if tableObj is BaseEntity {
-                        existsItem = try getRecordForTable(table: table, itemId: dict![MSSystemColumnId] as! String)
-                    } else  {
+                    if let to = existsItem as? BaseEntity {
                         existsItem = realm.objects(tableObj).filter(NSPredicate(format: "id = %d", argumentArray: [item[MSSystemColumnId]])).first
+                    } else  {
+                        existsItem = try getRecordForTable(table: table, itemId: dict![MSSystemColumnId] as! String)
                     }
 
                     try! realm.write {

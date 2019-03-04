@@ -37,7 +37,7 @@ public extension Results {
 }
 
 extension BaseObject {
-    func toModel(data: NSDictionary) throws -> Self {
+    public func toModel(data: NSDictionary) throws -> Self {
         let d = type(of: self).init(dictionary: data)
         let mirror = Mirror(reflecting: d)
 
@@ -52,7 +52,7 @@ extension BaseObject {
         return self
     }
 
-    func toDict() -> [AnyHashable: Any] {
+    public func toDict() -> [AnyHashable: Any] {
         var dict = [AnyHashable: Any]()
         var exit = false
         var otherSelf = Mirror(reflecting: self as! RealmSwift.Object)
