@@ -16,12 +16,13 @@ public extension BaseDataAccessObjectProtocol {
     public func update<T: BaseEntity>(model: T) -> Observable<Bool> {
         return Observable.create { observer in
             self.datasource.update(model.toDict(), completion: { (error) -> Void in
-                if let e = error {
-                    observer.onError(e)
-                } else {
-                    observer.onNext(true)
+
+                guard error == nil else {
+                    observer.onError(error!)
+                    return
                 }
 
+                observer.onNext(true)
                 observer.onCompleted()
             })
 
@@ -33,13 +34,14 @@ public extension BaseDataAccessObjectProtocol {
         return Observable.create { observer in
             model.id = ""
             self.datasource.insert(model.toDict(), completion: { (item, error) in
-                if let e = error {
+
+                guard error == nil else {
                     try! BaseDataProvider.instance.store?.deleteItems(withIds: [model.id], table: self.datasource.name)
-                    observer.onError(e)
-                } else {
-                    observer.onNext(item! as [AnyHashable: Any])
+                    observer.onError(error!)
+                    return
                 }
 
+                observer.onNext(item! as [AnyHashable: Any])
                 observer.onCompleted()
             })
 
@@ -50,22 +52,23 @@ public extension BaseDataAccessObjectProtocol {
     public func updateAndPushIfOnline<T: BaseEntity>(model: T) -> Observable<Bool> {
         return Observable.create { observer in
             self.datasource.update(model.toDict(), completion: { (error) -> Void in
-                if let e = error {
-                    observer.onError(e)
-                    observer.onCompleted()
-                } else {
-                    BaseDataProvider.instance.pushIfOnline(completion: {
-                        (error) -> Void in
 
-                        if let e = error {
-                            observer.onError(e)
-                        } else {
-                            observer.onNext(true)
-                        }
-
-                        observer.onCompleted()
-                    })
+                guard error == nil else {
+                    observer.onError(error!)
+                    return
                 }
+
+                BaseDataProvider.instance.pushIfOnline(completion: {
+                    (error) -> Void in
+
+                    guard error == nil else {
+                        observer.onError(error!);
+                        return
+                    }
+
+                    observer.onNext(true)
+                    observer.onCompleted()
+                })
             })
 
             return Disposables.create()
@@ -77,24 +80,24 @@ public extension BaseDataAccessObjectProtocol {
             model.id = ""
 
             self.datasource.insert(model.toDict(), completion: { (item, error) in
-                if let e = error {
+                guard error == nil else {
                     try! BaseDataProvider.instance.store?.deleteItems(withIds: [model.id], table: self.datasource.name)
-                    observer.onError(e)
-                    observer.onCompleted()
-                } else {
-                    BaseDataProvider.instance.pushIfOnline(completion: {
-                        (error) -> Void in
-
-                        if let e = error {
-                            try! BaseDataProvider.instance.store?.deleteItems(withIds: [model.id], table: self.datasource.name)
-                            observer.onError(e)
-                        } else {
-                            observer.onNext(item! as [AnyHashable: Any])
-                        }
-
-                        observer.onCompleted()
-                    })
+                    observer.onError(error!)
+                    return
                 }
+
+                BaseDataProvider.instance.pushIfOnline(completion: {
+                    (error) -> Void in
+
+                    guard error == nil else {
+                        try! BaseDataProvider.instance.store?.deleteItems(withIds: [model.id], table: self.datasource.name)
+                        observer.onError(error!)
+                        return
+                    }
+
+                    observer.onNext(item! as [AnyHashable: Any])
+                    observer.onCompleted()
+                })
             })
 
             return Disposables.create()
@@ -104,12 +107,13 @@ public extension BaseDataAccessObjectProtocol {
     public func delete<T: BaseEntity>(model: T) -> Observable<Bool> {
         return Observable.create { observer in
             self.datasource.delete(model.toDict(), completion: { (error) -> Void in
-                if let e = error {
-                    observer.onError(e)
-                } else {
-                    observer.onNext(true)
+
+                guard error == nil else {
+                    observer.onError(error!)
+                    return
                 }
 
+                observer.onNext(true)
                 observer.onCompleted()
             })
 
@@ -122,17 +126,17 @@ public extension BaseDataAccessObjectProtocol {
             self.datasource.delete(model.toDict(), completion: { (error) -> Void in
                 if let e = error {
                     observer.onError(e)
-                    observer.onCompleted()
+                    return
                 } else {
                     BaseDataProvider.instance.pushIfOnline(completion: {
                         (error) -> Void in
 
-                        if let e = error {
-                            observer.onError(e)
-                        } else {
-                            observer.onNext(true)
+                        guard error == nil else {
+                            observer.onError(error!)
+                            return
                         }
 
+                        observer.onNext(true)
                         observer.onCompleted()
                     })
                 }
