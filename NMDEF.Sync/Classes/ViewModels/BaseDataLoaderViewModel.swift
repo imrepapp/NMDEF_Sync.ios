@@ -20,6 +20,7 @@ open class BaseDataLoaderViewModel<T>: BaseViewModel {
         _disposable?.dispose()
         _disposable = datasource
                 .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .background))
+                .observeOn(MainScheduler.instance)
                 .subscribe(onNext: { self.loadData(data: $0) }, onError: { self.onError(error: $0) }, onCompleted: { self.onCompleted() })
     }
 
