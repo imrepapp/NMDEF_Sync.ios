@@ -15,7 +15,7 @@ open class BaseDataLoaderViewModel<T>: BaseViewModel {
     }
 
     public func loadData() {
-        isLoading.val = true
+        onBeforeLoadData()
 
         _disposable?.dispose()
         _disposable = datasource
@@ -26,6 +26,10 @@ open class BaseDataLoaderViewModel<T>: BaseViewModel {
 
     open func loadData(data: T) {
 
+    }
+
+    open func onBeforeLoadData() {
+        isLoading.val = true
     }
 
     open func onError(error: Error) {
