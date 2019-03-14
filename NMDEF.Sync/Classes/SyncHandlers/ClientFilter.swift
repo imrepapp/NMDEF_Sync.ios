@@ -9,7 +9,7 @@ class ClientFilter: NSObject, MSFilter {
         let mutableRequets: NSMutableURLRequest = ((request as NSURLRequest).mutableCopy() as? NSMutableURLRequest)!
 
         if !(mutableRequets.allHTTPHeaderFields!["DeviceId"] != nil) {
-            mutableRequets.setValue("1234test123", forHTTPHeaderField: "DeviceId")
+            mutableRequets.setValue(UIDevice.current.identifierForVendor!.uuidString, forHTTPHeaderField: "DeviceId")
         }
 
         onBeforeRequest(mutableRequets)
