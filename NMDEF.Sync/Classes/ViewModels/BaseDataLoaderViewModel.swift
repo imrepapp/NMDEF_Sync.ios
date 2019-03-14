@@ -5,7 +5,6 @@ import RxCocoa
 
 open class BaseDataLoaderViewModel<T>: BaseViewModel {
     open var datasource: Observable<T> { get{ return .empty() } }
-    public var isLoading = BehaviorRelay<Bool>(value: false)
     public var isEmpty = BehaviorRelay<Bool>(value: true)
     private var _disposable: Disposable?
 
