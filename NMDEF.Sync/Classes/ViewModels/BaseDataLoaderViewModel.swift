@@ -8,12 +8,15 @@ open class BaseDataLoaderViewModel<T>: BaseViewModel {
     public var isEmpty = BehaviorRelay<Bool>(value: true)
     private var _disposable: Disposable?
 
-    public required init() {
+    required public init() {
         super.init()
-        loadData()
+
+        self.rx.viewCreated += { _ in
+            self.loadData()
+        }
     }
 
-    public func loadData() {
+    open func loadData() {
         onBeforeLoadData()
 
         _disposable?.dispose()

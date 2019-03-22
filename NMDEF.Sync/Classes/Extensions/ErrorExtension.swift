@@ -5,7 +5,7 @@
 import MicrosoftAzureMobile_Xapt
 
 public extension Error {
-    public var message: String? {
+    public var message: String {
         get {
             do {
                 if let data = ((((self as? NSError)?.userInfo[MSErrorPushResultKey] as? NSArray)?[0]) as? MSTableOperationError)?.description
@@ -19,7 +19,7 @@ public extension Error {
                 print("Failed to load: \(self.localizedDescription)")
             }
 
-            return nil
+            return self.localizedDescription
         }
     }
 }
