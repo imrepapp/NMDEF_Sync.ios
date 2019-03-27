@@ -76,4 +76,18 @@ public class SynchronizationQueue {
         cancelAll()
         instance._queue.removeAll(where: { $0.status == .canceled || $0.status == .requested })
     }
+
+    public var hasRunningTask: Bool {
+        get {
+            return _queue.filter({ $0.status == .inProgress }).count > 0
+        }
+    }
+
+    public var lastSuccessItem: SynchronizationQueueItem? {
+        get {
+            _queue.sort(by: { $0.modifiedAt > $1.modifiedAt })
+            return _queue.first(where: { $0.status == .success })
+        }
+    }
+
 }

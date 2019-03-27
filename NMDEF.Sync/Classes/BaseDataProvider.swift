@@ -212,6 +212,32 @@ public class BaseDataProvider: NSObject {
     public func addHandler(handler: BaseHandler) {
         ClientFilter.handlers.append(handler)
     }
+
+    public var lastSyncTime: Date? {
+        get {
+            if _syncQueue.lastSuccessItem != nil {
+                return _syncQueue.lastSuccessItem?.modifiedAt
+            } else {
+                return nil
+            }
+        }
+    }
+
+    public var lastSyncDuration: TimeInterval? {
+        get {
+            if _syncQueue.lastSuccessItem != nil {
+                return _syncQueue.lastSuccessItem?.modifiedAt.timeIntervalSince1970
+            } else {
+                return nil
+            }
+        }
+    }
+
+    public var isInProgress: Bool {
+        get {
+            return _syncQueue.hasRunningTask
+        }
+    }
 }
 
 public struct DataProviderContext {
