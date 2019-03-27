@@ -41,7 +41,9 @@ public class BaseDataProvider: NSObject {
             // add handlers
             self.addHandler([
                 DeviceIdHandler(),
-                InsertHandler()
+                InsertEntityHandler(),
+                UpdateEntityHandler(),
+                DeleteEntityHandler()
             ])
 
             if self.syncDAOs.count == 0 {

@@ -1,4 +1,6 @@
-public class InsertHandler: PostHandler {
+import MicrosoftAzureMobile_Xapt
+
+public class InsertEntityHandler: PostHandler {
     override open func onBeforeRequest(requestArgs: BaseRequestHandlerArgs) {
         super.onBeforeRequest(requestArgs: requestArgs)
     }
@@ -9,8 +11,9 @@ public class InsertHandler: PostHandler {
         do {
             let args = responseArgs as! PostResponseHandlerArgs
             try BaseDataProvider.instance.store?.deleteItems(withIds: [args.entity!.id], table: args.entityName!)
+            try deleteUnsuccessfulOperation(table: args.entityName!, itemId: args.entity!.id)
         } catch {
-            // ignore
+            print(error)
         }
     }
 }
