@@ -5,7 +5,7 @@ import EVReflection
 import MicrosoftAzureMobile_Xapt
 
 public class Store: NSObject, MSSyncContextDataSource {
-    func systemProperties(forTable table: String) -> UInt {
+    public func systemProperties(forTable table: String) -> UInt {
         return 0
     }
 
