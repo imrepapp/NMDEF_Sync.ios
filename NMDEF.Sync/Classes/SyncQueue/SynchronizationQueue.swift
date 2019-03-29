@@ -51,8 +51,10 @@ public class SynchronizationQueue {
             if let item = (pendingItems.filter({ $0.status == .requested }).first ?? pendingItems.filter({ $0.status == .canceled }).first) {
                 _currentItem = item
                 _currentItem?.status = .inProgress
-                _currentProcess = syncAction!(item).subscribe({
-                    print($0)
+                _currentProcess = syncAction!(_currentItem!).subscribe(onError: { error in
+                    self._queue.removeAll(where: { $0.id == self._currentItem!.id })
+                    print(error)
+                }, onCompleted: {
                     self._currentItem?.status = .success
                 })
                 _currentProcess?.disposed(by: _disposebag)

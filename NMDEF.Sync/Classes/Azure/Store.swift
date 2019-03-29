@@ -1,4 +1,5 @@
 import UIKit
+import Foundation
 import RealmSwift
 import EVReflection
 import MicrosoftAzureMobile_Xapt
@@ -101,7 +102,7 @@ public class Store: NSObject, MSSyncContextDataSource {
 
     public func upsertItems(_ items: [[AnyHashable: Any]]?, table: String) throws {
         let tableObj = getTableObj(tableName: table)
-        
+
         if let realItems = items, let maxCount = items?.count {
             for index in 0..<maxCount {
                 var item = realItems[index]

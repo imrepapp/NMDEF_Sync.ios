@@ -185,8 +185,11 @@ public class BaseDataProvider: NSObject {
         if syncItem.group == nil || syncGroups[syncItem.group ?? ""] != nil {
             var daos: [Observable<Void>] = []
             var sd = syncItem.group != nil ? syncDAOs.filter({ syncGroups[syncItem.group!]!.contains(String(describing: type(of: $0))) }) : syncDAOs
+
             for dao in sd.sorted(by: { $0.priority < $1.priority }) {
-                daos.append(dao.syncTable().catchErrorJustReturn(()))
+                if !skipTables.contains(dao.datasource.name) {
+                    daos.append(dao.syncTable().catchErrorJustReturn(()))
+                }
             }
 
             return Observable.concat(daos)

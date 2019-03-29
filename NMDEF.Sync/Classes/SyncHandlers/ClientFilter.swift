@@ -6,6 +6,10 @@ class ClientFilter: NSObject, MSFilter {
     private var currentHandlers: [BaseHandler] = []
 
     func handle(_ request: URLRequest, next: @escaping MSFilterNextBlock, response: @escaping MSFilterResponseBlock) {
+        #if DEBUG
+        print(request.url)
+        #endif
+
         let mutableRequets: NSMutableURLRequest = ((request as NSURLRequest).mutableCopy() as? NSMutableURLRequest)!
 
         if !(mutableRequets.allHTTPHeaderFields!["DeviceId"] != nil) {

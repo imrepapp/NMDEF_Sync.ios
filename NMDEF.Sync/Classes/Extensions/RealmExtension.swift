@@ -38,15 +38,10 @@ public extension Results {
 
 extension BaseObject {
     public func toModel(data: NSDictionary) throws -> Self {
-        let d = type(of: self).init(dictionary: data)
-        let mirror = Mirror(reflecting: d)
-
-        for (index, value) in mirror.toDictionary() {
-            if index == MSSystemColumnId && (self.value(forKey: MSSystemColumnId) as! String).count != 0 {
-                continue
-            }
-
-            self.setValue(value, forKey: index)
+        if let id = data[MSSystemColumnId], (data[MSSystemColumnId] as? String)?.count != 0 {
+            _ = (self as! EVCustomReflectable).constructWith(value: try! (data as! [String: Any]).filter { $0.key != MSSystemColumnId })
+        } else {
+            _ = (self as! EVCustomReflectable).constructWith(value: data)
         }
 
         return self
