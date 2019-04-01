@@ -50,6 +50,7 @@ public class SynchronizationQueue {
 
             if let item = (pendingItems.filter({ $0.status == .requested }).first ?? pendingItems.filter({ $0.status == .canceled }).first) {
                 _currentItem = item
+                _currentItem?.status = .start
                 _currentItem?.status = .inProgress
                 _currentProcess = syncAction!(_currentItem!).subscribe(onError: { error in
                     self._queue.removeAll(where: { $0.id == self._currentItem!.id })
@@ -71,6 +72,17 @@ public class SynchronizationQueue {
         instance._currentProcess?.dispose()
         for var sqi in instance._queue.filter({ ($0.status == .inProgress || $0.status == .start) && $0.priority.rawValue <= priority.rawValue }) {
             sqi.status = .canceled
+        }
+    }
+
+    public static func cancel(id: String) {
+        if instance._currentItem?.id == id {
+            instance._currentItem = nil
+            instance._currentProcess?.dispose()
+        } else {
+            if var item = instance._queue.filter({ $0.id == id }).first {
+                item.status = .canceled
+            }
         }
     }
 

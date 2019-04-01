@@ -10,12 +10,23 @@ open class BaseSyncViewModel<T>: BaseDataLoaderViewModel<T> {
     private var _isFirstSync = false
     private var _isSynced = false
     private var _syncObserver: Disposable?
+    private var _currentSyncItem: SynchronizationQueueItem?
 
     public var isSyncing = BehaviorRelay<Bool>(value: false)
 
     open var dependencies: [BaseDataAccessObjectProtocol.Type] {
         get {
             return []
+        }
+    }
+
+    required public init() {
+        super.init()
+
+        self.rx.viewDisappearing += {
+            if let id = self._currentSyncItem?.id {
+                SynchronizationQueue.cancel(id: id)
+            }
         }
     }
 
@@ -54,17 +65,22 @@ open class BaseSyncViewModel<T>: BaseDataLoaderViewModel<T> {
             _syncObserver = RxBus.shared.asObservable(event: SyncEvent.Synced.self)
                     .observeOn(MainScheduler.instance)
                     .subscribe { event in
-                        switch event.element!.item.status {
-                        case .success, .canceled:
-                            self._isSynced = true
-                            self._isFirstSync = false
-                            self.onAfterSync()
-                            self._syncObserver?.dispose()
-                            self.loadData()
-                            break
-                        case .inProgress, .requested, .start:
-                            //ignore
-                            break
+                        if event.element!.item.group == String(describing: self) {
+                            switch event.element!.item.status {
+                            case .success, .canceled:
+                                self._isSynced = true
+                                self._isFirstSync = false
+                                self.onAfterSync()
+                                self._syncObserver?.dispose()
+                                self.loadData()
+                                break
+                            case .start:
+                                self._currentSyncItem = event.element!.item
+                                break
+                            case .inProgress, .requested:
+                                //ignore
+                                break
+                            }
                         }
                     }
         }
