@@ -1,4 +1,3 @@
-import NMDEF_Sync
 import NMDEF_Base
 import RxSwift
 import RxCocoa

@@ -1,6 +1,5 @@
 import MicrosoftAzureMobile_Xapt
 import NMDEF_Base
-import NMDEF_Sync
 import RxBus
 import RxSwift
 import RxCocoa

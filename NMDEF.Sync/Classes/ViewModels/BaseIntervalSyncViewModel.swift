@@ -1,5 +1,4 @@
 import NMDEF_Base
-import NMDEF_Sync
 import RxSwift
 
 open class BaseIntervalSyncViewModel<T>: BaseSyncViewModel<T> {

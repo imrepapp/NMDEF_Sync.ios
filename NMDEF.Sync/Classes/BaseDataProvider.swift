@@ -51,8 +51,6 @@ public class BaseDataProvider: NSObject {
                 fatalError("There aren't any DAO classes.")
             }
 
-            var c = self.syncDAOs.filter({ String(describing: type(of: $0)) == "ModDateTimesDAO" }).first
-
             self._syncQueue.syncAction = self.syncQueueItem
 
             if let modDateTimeDAO = self.syncDAOs.filter({ String(describing: type(of: $0)) == "ModDateTimesDAO" }).first {
@@ -185,7 +183,7 @@ public class BaseDataProvider: NSObject {
     private func syncQueueItem(syncItem: SynchronizationQueueItem) -> Observable<Void> {
         if syncItem.group == nil || syncGroups[syncItem.group ?? ""] != nil {
             var daos: [Observable<Void>] = []
-            var sd = syncItem.group != nil ? syncDAOs.filter({ syncGroups[syncItem.group!]!.contains(String(describing: type(of: $0))) }) : syncDAOs
+            let sd = syncItem.group != nil ? syncDAOs.filter({ syncGroups[syncItem.group!]!.contains(String(describing: type(of: $0))) }) : syncDAOs
 
             for dao in sd.sorted(by: { $0.priority < $1.priority }) {
                 if !skipTables.contains(dao.datasource.name) {

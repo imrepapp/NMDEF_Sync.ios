@@ -15,8 +15,8 @@ open class BaseOperationHandler: BaseHandler {
     }
 
     public func deleteUnsuccessfulOperation(table: String, itemId: String) throws {
-        var realm = try! Realm()
-        var row = realm.objects(MS_TableOperations.self).filter(NSPredicate(format: "itemId = %@ and table = %@", argumentArray: [
+        let realm = try! Realm()
+        let row = realm.objects(MS_TableOperations.self).filter(NSPredicate(format: "itemId = %@ and table = %@", argumentArray: [
             itemId,
             table
         ]))
