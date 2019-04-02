@@ -42,7 +42,6 @@ This framework handles synchronization and data manipulation process between NMD
   s.dependency 'NMDEF.Base'
   s.dependency 'RealmSwift'
   s.dependency 'EVReflection/Realm'
-  s.dependency 'ReachabilitySwift'
   s.dependency 'Alamofire', '~> 4.7'
   s.dependency 'RxSwift',    '~> 4.0'
   s.dependency 'RxCocoa',    '~> 4.0'

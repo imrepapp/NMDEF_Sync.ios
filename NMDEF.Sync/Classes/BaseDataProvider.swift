@@ -1,6 +1,7 @@
 import MicrosoftAzureMobile_Xapt
 import RxBus
 import RxSwift
+import NMDEF_Base
 
 public class BaseDataProvider: NSObject {
     public static let instance = BaseDataProvider()
@@ -117,7 +118,7 @@ public class BaseDataProvider: NSObject {
     }
 
     public func pushIfOnline(completion: MSSyncBlock?) {
-        NetworkManager.isReachable { _ in
+        if (BaseAppDelegate.networkManager.getcurrentNetworkStatus()) {
             self.client?.syncContext?.push(completion: completion)
         }
     }
