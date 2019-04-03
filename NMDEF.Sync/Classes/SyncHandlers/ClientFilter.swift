@@ -7,7 +7,7 @@ class ClientFilter: NSObject, MSFilter {
 
     func handle(_ request: URLRequest, next: @escaping MSFilterNextBlock, response: @escaping MSFilterResponseBlock) {
         #if DEBUG
-        print(request.url)
+        print(request.url!)
         #endif
 
         let mutableRequets: NSMutableURLRequest = ((request as NSURLRequest).mutableCopy() as? NSMutableURLRequest)!

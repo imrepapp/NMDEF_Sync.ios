@@ -12,7 +12,7 @@ open class BaseDataLoaderViewModel<T>: BaseViewModel {
 
         self.rx.viewCreated += { _ in
             self.loadData()
-        }
+        } => disposeBag
     }
 
     open func loadData() {

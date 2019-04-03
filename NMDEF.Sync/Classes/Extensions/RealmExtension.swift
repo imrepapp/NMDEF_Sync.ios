@@ -39,9 +39,9 @@ public extension Results {
 extension BaseObject {
     public func toModel(data: NSDictionary) throws -> Self {
         if let id = data[MSSystemColumnId], (data[MSSystemColumnId] as? String)?.count != 0 {
-            _ = (self as! EVCustomReflectable).constructWith(value: try! (data as! [String: Any]).filter { $0.key != MSSystemColumnId })
+            _ = (self as EVCustomReflectable).constructWith(value: try! (data as! [String: Any]).filter { $0.key != MSSystemColumnId })
         } else {
-            _ = (self as! EVCustomReflectable).constructWith(value: data)
+            _ = (self as EVCustomReflectable).constructWith(value: data)
         }
 
         return self
@@ -50,12 +50,12 @@ extension BaseObject {
     public func toDict() -> [AnyHashable: Any] {
         var dict = [AnyHashable: Any]()
         var exit = false
-        var otherSelf = Mirror(reflecting: self as! RealmSwift.Object)
+        var otherSelf = Mirror(reflecting: self as RealmSwift.Object)
 
         repeat {
             for child in otherSelf.children {
                 if let key = child.label {
-                    dict[key] = (self as! NSObject).value(forKey: key) as! Any
+                    dict[key] = (self as NSObject).value(forKey: key) as Any
                 }
             }
 

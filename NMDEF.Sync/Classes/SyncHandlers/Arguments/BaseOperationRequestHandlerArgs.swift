@@ -7,7 +7,7 @@ public class BaseOperationRequestHandlerArgs: BaseRequestHandlerArgs {
         super.init(request)
 
         if let et = entityType {
-            entity = et.init(json: String(data: request.httpBody as! Data, encoding: .utf8))
+            entity = et.init(json: String(data: request.httpBody!, encoding: .utf8))
         }
     }
 }

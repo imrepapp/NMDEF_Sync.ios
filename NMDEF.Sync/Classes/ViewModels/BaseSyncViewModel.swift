@@ -45,7 +45,7 @@ open class BaseSyncViewModel<T>: BaseDataLoaderViewModel<T> {
         if dependencies.count > 0 && !_isSynced {
             do {
                 if try BaseDataProvider.instance.store?.read(with: MSQuery(
-                        syncTable: BaseDataProvider.instance.client?.syncTable(withName: (BaseDataProvider.instance.store?.configTableName() as! String)),
+                        syncTable: BaseDataProvider.instance.client?.syncTable(withName: (BaseDataProvider.instance.store?.configTableName()) ?? ""),
                         predicate: NSPredicate(format: "table = %@", argumentArray: [
                             String.init(format: "MOB_%@", arguments: [
                                 String(describing: dependencies.first).components(separatedBy: ".").last!.replacingOccurrences(of: "DAO)", with: "")

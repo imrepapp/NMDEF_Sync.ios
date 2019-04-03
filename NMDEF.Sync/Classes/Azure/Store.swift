@@ -162,11 +162,11 @@ public class Store: NSObject, MSSyncContextDataSource {
     private func getTableObj(tableName: String) -> Object.Type {
         switch tableName {
             case configTableName():
-                return MS_TableConfig.self as! Object.Type
+                return MS_TableConfig.self as Object.Type
             case errorTableName():
-                return MS_TableOperationErrors.self as! Object.Type
+                return MS_TableOperationErrors.self as Object.Type
             case operationTableName():
-                return MS_TableOperations.self as! Object.Type
+                return MS_TableOperations.self as Object.Type
             default:
                 return NSClassFromString(String(format: "%@.%@", arguments: [Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String, tableName]))!
                         as! Object.Type
@@ -177,7 +177,7 @@ public class Store: NSObject, MSSyncContextDataSource {
         let realm = try! Realm()
         let predicate = NSPredicate(format: "id == %@", argumentArray: [itemId])
         let tableObj = getTableObj(tableName: table)
-        var v = realm.objects(tableObj).filter(predicate).first
+
         return realm.objects(tableObj).filter(predicate).first
     }
 }

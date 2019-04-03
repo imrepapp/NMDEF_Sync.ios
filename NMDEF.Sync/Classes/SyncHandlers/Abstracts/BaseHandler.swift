@@ -28,7 +28,7 @@ open class BaseHandler {
 
     open func onAfterRequest(responseArgs: BaseResponseHandlerArgs) {
         if !responseArgs.response.isSuccessStatusCode {
-            print(String(data: responseArgs.data, encoding: .utf8))
+            print(String(data: responseArgs.data, encoding: .utf8) ?? "")
         }
     }
 }

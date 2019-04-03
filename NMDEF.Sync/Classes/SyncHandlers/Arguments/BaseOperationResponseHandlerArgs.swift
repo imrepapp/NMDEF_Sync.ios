@@ -8,7 +8,7 @@ public class BaseOperationResponseHandlerArgs: BaseResponseHandlerArgs {
         super.init(request: request, response: response, data: data, error: error)
 
         if let et = entityType {
-            entity = et.init(json: String(data: request.httpBody as! Data, encoding: .utf8))
+            entity = et.init(json: String(data: request.httpBody!, encoding: .utf8))
         }
 
         if let et = entityType, response.isSuccessStatusCode {

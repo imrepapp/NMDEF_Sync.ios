@@ -30,7 +30,7 @@ public class BaseResponseHandlerArgs: BaseHandlerArgs {
         }
 
         if let en = entityName {
-            entityType = NSClassFromString(String(format: "%@.%@", arguments: [appName, en])) as! BaseEntity.Type
+            entityType = NSClassFromString(String(format: "%@.%@", arguments: [appName, en])) as? BaseEntity.Type
         }
     }
 }
