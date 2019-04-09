@@ -116,7 +116,7 @@ public class BaseDataProvider: NSObject {
     }
 
     public func pushIfOnline(completion: MSSyncBlock?) {
-        if (BaseAppDelegate.networkManager.getcurrentNetworkStatus()) {
+        if (BaseAppDelegate.networkManager.isNetworkAvailable.val) {
             self.client?.syncContext?.push(completion: completion)
         }
     }
