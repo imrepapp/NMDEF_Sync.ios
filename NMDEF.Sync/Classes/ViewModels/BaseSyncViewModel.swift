@@ -13,7 +13,7 @@ open class BaseSyncViewModel<T>: BaseDataLoaderViewModel<T> {
 
     public var isSyncing = BehaviorRelay<Bool>(value: false)
 
-    open var dependencies: [BaseDataAccessObjectProtocol.Type] {
+    open var dependencies: [BaseSyncDataAccessObject.Type] {
         get {
             return []
         }

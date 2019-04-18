@@ -13,7 +13,7 @@ public class BaseDataProvider: NSObject {
     var rowCount: Int?
     let pullSettings: MSPullSettings = MSPullSettings.init(pageSize: 1000)
 
-    var syncDAOs: [BaseDataAccessObjectProtocol] = []
+    var syncDAOs: [BaseSyncDataAccessObject] = []
     var syncGroups: [String: [String]] = [:]
     var skipTables: [String] = []
 
@@ -106,7 +106,7 @@ public class BaseDataProvider: NSObject {
         }
     }
 
-    public static func DAO<T: DataAccessObjectProtocol>(_ dao: T.Type) -> T {
+    public static func DAO<T: SyncDataAccessObject>(_ dao: T.Type) -> T {
         let className = String(describing: T.self).replacingOccurrences(of: ".Type", with: "")
         if let d = instance.syncDAOs.filter({ String(describing: type(of: $0)) == String(describing: T.self) }).first {
             return d as! T
@@ -123,7 +123,7 @@ public class BaseDataProvider: NSObject {
 
     private func collect() {
         let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String;
-        var sd: [String: BaseDataAccessObjectProtocol] = [:]
+        var sd: [String: BaseSyncDataAccessObject] = [:]
 
         for n in 0..<count {
             let someClass: AnyClass = allClasses[Int(n)]
@@ -131,8 +131,8 @@ public class BaseDataProvider: NSObject {
             if (String(describing: someClass).hasSuffix("DAO")) {
                 let c = (someClass as! NSObject.Type).init()
 
-                if !(c as! BaseDataAccessObjectProtocol).isOnline {
-                    syncDAOs.append(c as! BaseDataAccessObjectProtocol)
+                if !(c as! BaseSyncDataAccessObject).isOnline {
+                    syncDAOs.append(c as! BaseSyncDataAccessObject)
                 }
 
                 continue
@@ -162,7 +162,7 @@ public class BaseDataProvider: NSObject {
         return result
     }
 
-    public func addToSyncGroup(syncGroupName: String, daoList: [BaseDataAccessObjectProtocol.Type]) {
+    public func addToSyncGroup(syncGroupName: String, daoList: [BaseSyncDataAccessObject.Type]) {
         for daoType in daoList {
             addToSyncGroup(syncGroupName: syncGroupName, daoName: String(describing: daoType))
         }
@@ -197,13 +197,13 @@ public class BaseDataProvider: NSObject {
         return Observable.empty()
     }
 
-    public func addDAO(_ daos: [BaseDataAccessObjectProtocol]) {
+    public func addDAO(_ daos: [BaseSyncDataAccessObject]) {
         for var d in daos {
             addDAO(dao: d)
         }
     }
 
-    public func addDAO(dao: BaseDataAccessObjectProtocol) {
+    public func addDAO(dao: BaseSyncDataAccessObject) {
         syncDAOs.append(dao)
     }
 

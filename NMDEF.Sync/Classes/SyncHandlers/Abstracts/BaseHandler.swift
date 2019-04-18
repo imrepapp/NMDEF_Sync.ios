@@ -7,8 +7,8 @@ public enum HttpMethod: String {
 
 open class BaseHandler {
     open var priority: Int { return 1000 }
-    public var types: [String] { return [] }
-    public var methods: [HttpMethod]
+    open var types: [String] { return [] }
+    open var methods: [HttpMethod]
 
     public required init() {
         methods = []

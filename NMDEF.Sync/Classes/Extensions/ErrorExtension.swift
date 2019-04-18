@@ -14,6 +14,10 @@ public extension Error {
                     if let msg = json["message"] as? String {
                         return msg
                     }
+                } else if let json = try JSONSerialization.jsonObject(with: self.localizedDescription.data(using: .utf8)!, options: []) as? [String: AnyObject] {
+                    if let msg = json["message"] as? String {
+                        return msg
+                    }
                 }
             } catch {
                 print("Failed to load: \(self.localizedDescription)")
